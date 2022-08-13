@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+body {
+    display: grid;
+    grid-template-columns: 2fr 4fr 4fr 2fr;
+    grid-template-rows: auto auto 5fr;
+}
+
 svg {
     transition: 600ms cubic-bezier(0.76,-0.5, 0.27, 1.55);
 }
@@ -13,20 +19,22 @@ svg:hover {
 }
 
 nav {
-    width: 250px;
+    min-width: 135px;
     background-color: lightblue;
     display: flex;
-    gap: 30px;
+    gap: 2em;
     flex-direction: column;
     padding: 15px;
     flex: 1 1 auto;
+
+    grid-row: 1 / -1;
 }
 
 nav > div > div {
     display: flex;
-    gap: 10px;
+    gap: 1rem;
     align-items: center;
-    transition: 200ms cubic-bezier(0.76,-0.5, 0.27, 1.55);
+    transition: 500ms cubic-bezier(0.76,-0.5, 0.27, 1.55);
 }
 
 nav > div {
@@ -58,6 +66,8 @@ header > div {
 }
 
 header {
+    flex-wrap: wrap;
+    grid-column: 2 / -1;
     padding: 30px;
 }
 
@@ -87,7 +97,8 @@ header img {
 }
 
 input[type="search"] {
-    width: 400px;
+    min-width: 300px;
+    max-width: 600px;
     background: whitesmoke;
     appearance: none;
     padding: 2px 4px 2px 5px;
@@ -112,6 +123,8 @@ menu > div {
 }
 
 menu {
+    flex-wrap: wrap;
+    grid-column: 2 / -1;
     padding: 30px;
 }
 
@@ -154,11 +167,14 @@ main {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    grid-row: 3 / -1;
+    grid-column: 2 / -2;
+    min-width: 410px;
 }
 
 #main-card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
     gap: 30px;
     place-content: center;
 }
@@ -194,3 +210,30 @@ main > div > div > div{
     gap: 10px;
     place-self: end;
 }
+
+aside,
+aside > div,
+aside > div > div {
+    display: flex;
+    flex-direction: column;
+}
+
+aside {
+    padding: 5px;
+    justify-content:space-evenly ;
+}
+
+aside > div {
+    padding: 10px;
+    gap: 10px;
+    border-radius: 10px;
+    background: #dfdfdf;
+}
+
+aside > div > div {
+    padding: 5px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #ccc 0%, #fff 100%);
+    box-shadow: 0 0 5px 3px #aaa;
+}
+
